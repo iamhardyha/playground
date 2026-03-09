@@ -26,11 +26,12 @@ public class OrderController {
     public CompletableFuture<ResponseEntity<Map<String, Object>>> createOrder(@RequestBody CreateOrderRequest request) {
 
         String orderId = (request.orderId() == null || request.orderId().isBlank()) ? UUID.randomUUID().toString() : request.orderId();
+        String type = (request.type() == null || request.type().isBlank()) ? UUID.randomUUID().toString() : request.type();
 
         OrderEvent event = new OrderEvent(
                 UUID.randomUUID().toString(),
                 orderId,
-                "ORDER_CREATED",
+                type,
                 Instant.now()
         );
 

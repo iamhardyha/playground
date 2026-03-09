@@ -1,3 +1,3 @@
 package me.iamhardyha.playkafkaorderproducer.api.request;
 
-public record CreateOrderRequest(String orderId) { }
+public record CreateOrderRequest(String orderId, String type) { }
